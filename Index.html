@@ -19,23 +19,80 @@
 </head>
 
 <body>
+    
+<div class="add_new_btn_mobile_only">
+    <button class="btn btn-primary d-flex align-items-center gap-3" type="submit" data-bs-toggle="modal"
+                    data-bs-target="#AddNewModal">
+        <i class="fa-solid fa-plus" style="color: #ffffff;"></i> Add New
+    </button>
+</div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="AddNewModal" tabindex="-1" aria-labelledby="AddNewModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="AddNewModalLabel">Add New Task</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Navbar</a>
+            <a class="navbar-brand" href="#">TO-DO</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <button class="btn btn-primary " type="submit">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                </ul>
+                <button class="btn btn-primary d-flex align-items-center gap-3" type="submit" data-bs-toggle="modal"
+                    data-bs-target="#AddNewModal">
                     <i class="fa-solid fa-plus" style="color: #ffffff;"></i> Add New
                 </button>
             </div>
         </div>
     </nav>
+
+
+    <div class="container">
+        <!-- search bar -->
+        <section class="mt-4">
+            <div class="row justify-content-center">
+                <div class="col-md-6 ">
+                    <div class="input-group flex-nowrap shadow-lg rounded">
+                        <input type="search" class="form-control" placeholder="Search Your TO-DO"
+                            aria-label="Search Task" aria-describedby="addon-wrapping" />
+                        <span class="input-group-text" id="addon-wrapping">
+                            <i class="fas fa-search"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- task cards -->
+        <section class="mt-4">
+            <div class="row task__contents">
+
+            </div>
+        </section>
+    </div>
 
 
     <!-- js-file -->
