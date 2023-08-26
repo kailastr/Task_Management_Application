@@ -19,13 +19,13 @@
 </head>
 
 <body>
-    
-<div class="add_new_btn_mobile_only">
-    <button class="btn btn-primary d-flex align-items-center gap-3" type="submit" data-bs-toggle="modal"
-                    data-bs-target="#AddNewModal">
-        <i class="fa-solid fa-plus" style="color: #ffffff;"></i> Add New
-    </button>
-</div>
+
+    <div class="add_new_btn_mobile_only">
+        <button class="btn btn-primary d-flex align-items-center gap-3" type="submit" data-bs-toggle="modal"
+            data-bs-target="#AddNewModal">
+            <i class="fa-solid fa-plus" style="color: #ffffff;"></i> Add New
+        </button>
+    </div>
 
     <!-- Modal -->
     <div class="modal fade" id="AddNewModal" tabindex="-1" aria-labelledby="AddNewModalLabel" aria-hidden="true">
@@ -36,11 +36,33 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    ...
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <form class="">
+                        <div class="mb-3">
+                            <label for="imageUrl" class="form-label">Image Url</label>
+                            <input type="url" class="form-control" id="imageUrl"
+                                placeholder="http://exampleimage.org" />
+                        </div>
+                        <div class="mb-3">
+                            <label for="taskTitle" class="form-label">Task Title</label>
+                            <input type="text" class="form-control" id="taskTitle" placeholder="Learn Web Dev"
+                                required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="tags" class="form-label">Task Type</label>
+                            <input type="text" class="form-control" id="taskType" placeholder="Work / Health /.."
+                                required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="taskDescription" class="form-label">Task Desciption</label>
+                            <textarea class="form-control" id="taskDescription" placeholder="Task Description Details"
+                                required></textarea>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -76,7 +98,7 @@
             <div class="row justify-content-center">
                 <div class="col-md-6 ">
                     <div class="input-group flex-nowrap shadow-lg rounded">
-                        <input type="search" class="form-control" placeholder="Search Your TO-DO"
+                        <input type="search" class="form-control" placeholder="Search Your TO-DO List"
                             aria-label="Search Task" aria-describedby="addon-wrapping" />
                         <span class="input-group-text" id="addon-wrapping">
                             <i class="fas fa-search"></i>
