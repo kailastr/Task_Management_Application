@@ -21,7 +21,9 @@ const htmlTaskContent = ({ id, title, description, type, url }) => `
                 </button>
             </div>
             <div class='card-body'>
-                ${url && `<img width='100%' src=${url} alt='card image cap' class='card-image-top md-3 rounded-lg' />`
+                ${url
+        ? `<img width='100%' height="250px" style="object-fit: cover; object-position: center" src=${url} alt='card image cap' class='card-image-top md-3 rounded-lg' />`
+        : `<img width='100%' height="250px" style="object-fit: cover; object-position: center" src="https://www.shutterstock.com/shutterstock/photos/1904598853/display_1500/stock-photo-tasks-word-on-wooden-cubes-on-a-beautiful-gray-background-business-concept-1904598853.jpg" alt='card image cap' class='card-image-top md-3 rounded-lg' />`
     }
                 <h4 class ='task__card__title'>${title}</h4>
                 <p class='description trim-3-lines text-muted' data-gram-editor='false'>${description}</p>
@@ -40,8 +42,9 @@ const htmlModalContent = ({ id, title, url, description }) => {
     const date = new Date(parseInt(id));
     return `
         <div id=${id}>
-            ${url &&
-        `<img width ='100%' src=${url} alt='task images' class='img-fluid place_holder_image mb-3' />`
+        ${url
+            ? `<img width='100%' height="250px" style="object-fit: cover; object-position: center" src=${url} alt='card image cap' class='card-image-top md-3 rounded-lg' />`
+            : `<img width='100%' height="250px" style="object-fit: cover; object-position: center" src="https://www.shutterstock.com/shutterstock/photos/1904598853/display_1500/stock-photo-tasks-word-on-wooden-cubes-on-a-beautiful-gray-background-business-concept-1904598853.jpg" alt='card image cap' class='card-image-top md-3 rounded-lg' />`
         }
             <strong class='text-sm text-muted'>Created on ${date.toDateString()}</strong>
             <h2 class=''my-3>${title}</h2>
@@ -207,4 +210,23 @@ const saveEdit = (e) => {
     submitButton.setAttribute('data-bs-target', 'modal');
     submitButton.setAttribute("data-bs-target", "#showTask");
     submitButton.innerHTML = "Open Task";
+};
+
+//to activate the search bar
+const searchTask = (e) => {
+    if (!e) e = window.Event;
+
+    while (taskContents.firstChild) {
+        taskContents.removeChild(taskContents.firstChild);
+
+    }
+
+    const resultData = state.taskList.filter(({ title }) => {
+        return title.toLowerCase().includes(e.target.value.toLowerCase());
+    });
+
+    // console.log(resultData);
+    resultData.map((cardData) => {
+        taskContents.insertAdjacentHTML('beforeend', htmlTaskContent(cardData));
+    });
 };

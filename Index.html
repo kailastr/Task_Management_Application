@@ -119,7 +119,9 @@
                 <div class="col-md-6 ">
                     <div class="input-group flex-nowrap shadow-lg rounded">
                         <input type="search" class="form-control" placeholder="Search Your TO-DO List"
-                            aria-label="Search Task" aria-describedby="addon-wrapping" />
+                            aria-label="Search Task" aria-describedby="addon-wrapping"
+                            oninput="searchTask.apply(this, arguments)" />
+                        <!-- the oninput attribute in the input tag calls the function from the JS and also it helps to check the value at the time we are inputing the values -->
                         <span class="input-group-text" id="addon-wrapping">
                             <i class="fas fa-search"></i>
                         </span>
